@@ -1,26 +1,31 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Col, Container, Nav, Row } from 'react-bootstrap'
 
-const text = {
-    color:'#ffffff'
-  }
-  const LogoStyle = {
-    color:'#ffffff'
-  }
-  const navBG={
-    background:'#000000'
-  }
- 
  const NavBar = () => {
    return (
-       <div style={navBG}>
-           <Link style={text}>
-           <h2 style={LogoStyle}>OPENAUTO</h2>
-           </Link>
-           <Link style={text}>+769 586 4558 </Link>
-           <Link style={text} >Service@openauto.ca </Link>
-           <Link style={text} >Download the mobile app </Link>
-       </div>
+       <nav className="navbar">
+           <Container className='container-fluid container-sm'>
+                   <Col>
+                       <Link>
+                           <h3>OPENAUTO</h3>
+                       </Link>
+                   </Col>
+                   <Row>
+                   <Col>
+                       <Link>+769 586 4558 </Link>
+                   </Col>
+                   <Col>
+                       <Link>Service@openauto.ca </Link>
+                   </Col>
+                   <Col>
+                       <Link>Download the mobile app </Link>
+                   </Col>
+                   </Row>
+           </Container>
+       </nav>
+       
    )
  }
  
