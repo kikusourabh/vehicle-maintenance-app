@@ -8,11 +8,28 @@ const Content = () => {
     Name:"",
     Email:""
   })
-  const handleSubmit=(eve) => { 
-      alert("Input value:",eve.target)
+  const handleChanges = (eve) => { 
+    let formName = eve.target.name;
+    let fleldVal = eve.target.value;
+    console.log("Name",formName,"Value",fleldVal);
+    if (formName==='Name') {
+      setInputValue({...inputValue,Name:fleldVal})
+    }else{
+      setInputValue({...inputValue,Email:fleldVal})
+    }
+   }
+  const handleSubmit=() => { 
+      // alert("Input value:",eve)
+      // console.log("Name",eve,);
+      // console.log("Name",inputValue,);
+      alert("you have successfully submitted data "+inputValue.Name)
    }
   return (
     <Container>
+
+    
+
+
         <Row style={{ paddingTop: 30 }}>
           <Col style={{ paddingTop: 40 }}>
             <Stack>
@@ -27,19 +44,19 @@ const Content = () => {
               </span>
               <Row md={2} style={{marginTop:50}}>
 
-              <Form onSubmit={(eve)=>handleSubmit(eve)}>
-              <Row>
-                <Form.Group controlId="formBasicName">
-                  <Form.Control required onChange={(e)=>setInputValue(e.target.value,inputValue?.Email)} style={{paddingTop:8,paddingBottom:8,paddingLeft:20, fontSize:12, backgroundColor:'transparent',borderWidth:1, borderRadius:30, borderColor:'#a1a4a9', color:'#a1a4a9'}} type="text" placeholder="Enter your name" />
-                </Form.Group>
+              <Form method='post' onSubmit={(eve) => handleSubmit(eve)}>
+                <Row>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Control name='Name' required onChange={(e)=>handleChanges(e)} style={{ paddingTop: 8, paddingBottom: 8, paddingLeft: 20, fontSize: 12, backgroundColor: 'transparent', borderWidth: 1, borderRadius: 30, borderColor: '#a1a4a9', color: '#a1a4a9' }} type="text" placeholder="Enter your name" />
+                  </Form.Group>
                 </Row>
                 <Row>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control required onChange={(e)=>setInputValue(inputValue?.Name,e.target.value)} style={{marginTop:10,paddingTop:8,paddingBottom:8,paddingLeft:20, fontSize:12,backgroundColor:'transparent',borderWidth:1, borderRadius:30, borderColor:'#a1a4a9', color:'#a1a4a9'}} type="email" placeholder="Enter your email" />
-                </Form.Group>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Control name='email' required onChange={(e)=>handleChanges(e)} style={{ marginTop: 10, paddingTop: 8, paddingBottom: 8, paddingLeft: 20, fontSize: 12, backgroundColor: 'transparent', borderWidth: 1, borderRadius: 30, borderColor: '#a1a4a9', color: '#a1a4a9' }} type="email" placeholder="Enter your email" />
+                  </Form.Group>
                 </Row>
-                <Row style={{padding:10}}>
-                <Button  variant="outline-primary" size='lg' type="submit" style={{textTransform:'none',borderWidth:1,fontSize:15,borderRadius:30, color:'#a1a4a9',borderBlockColor:'#a1a4a9', fontWeight:'bold', }}>Submit</Button>          
+                <Row style={{ padding: 10 }}>
+                  <Button variant="outline-primary" size='lg' onClick={handleSubmit} style={{ textTransform: 'none', borderWidth: 1, fontSize: 15, borderRadius: 30, color: '#a1a4a9', borderBlockColor: '#a1a4a9', fontWeight: 'bold', }}>Submit</Button>
                 </Row>
               </Form>
               </Row>
