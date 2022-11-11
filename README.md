@@ -28,4 +28,4 @@ This app is build using React base frame work so if you don't have gatsby instal
 
 **Screenshots**
 ![screenshot](./screenshots/sc.png "landing page")
-![screenshot](./screenshots/demo.mov "demo")
+![Demo video](./screenshots/demo.mov "demo")
