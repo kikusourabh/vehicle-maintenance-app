@@ -16,5 +16,12 @@ This app is build using React base frame work so if you don't have gatsby instal
 
     ```shell
     cd vehicle-maintenance-app/
-    npm run develop
+    yarn install
+    yarn develop
     ```
+3.  **Show case of the langing page**
+
+    Navigate to web browser http://localhost:8000 your able to see the landing page
+    
+**Technology stack**
+  react js gatsby framwork, bootstrap for styling, Materialized for Icons.

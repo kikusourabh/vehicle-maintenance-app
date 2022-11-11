@@ -17,7 +17,23 @@ const config: GatsbyConfig = {
           'Open Sans:300,400,400i,700'
         ]
       }
-    }
+    },
+    {
+      resolve:'gatsby-source-firestore',
+      options:{
+        credential: require("./firebase.json"),
+        types: [
+          {
+            type: 'Clients',
+            collection: 'clients',
+            map: doc => ({
+              name: doc.name,
+              email: doc.email,
+            }),
+          }
+        ],
+      }
+    },
   ],
 }
 
